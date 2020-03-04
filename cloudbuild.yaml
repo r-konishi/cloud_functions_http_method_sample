@@ -1,0 +1,24 @@
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      # https://cloud.google.com/functions/docs/deploying/filesystem?hl=ja#deploy_using_the_gcloud_tool
+      # gcloud functions deploy NAME --runtime RUNTIME TRIGGER [FLAGS...]
+      - functions
+      - deploy
+      - user
+      - --entry-point=YourselfEndpoint
+      - --runtime=go113
+      - --source=./user
+      - --trigger-http
+      - --region=asia-northeast1
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - functions
+      - deploy
+      - users
+      - --entry-point=UsersEndpoint
+      - --runtime=go113
+      - --source=./user
+      - --trigger-http
+      - --region=asia-northeast1
