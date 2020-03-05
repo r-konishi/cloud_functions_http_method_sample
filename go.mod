@@ -1,4 +1,4 @@
-module github.com/r-konishi/cloud_functions_http_method_sample/user
+module github.com/r-konishi/cloud_functions_http_method_sample
 
 go 1.13
 
